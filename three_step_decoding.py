@@ -26,14 +26,14 @@ from nmt.transliterate import Transliterate
 
 
 class ThreeStepDecoding(object):
-    def __init__(self, lid, htrans=None, etrans=None, wx=False):
+    def __init__(self, lid, htrans=None, etrans=None, wx=False, hlm='./lm/hindi-n3-p5-lmplz.blm', elm='./lm/english-n3-p10-lmplz.blm', e2hh='dicts/ENG2HIN12M.dict', h2ee='dicts/HIN2ENG12M.dict'):
         self.ed = enchant.Dict('en')
-        self.hblm =  kenlm.LanguageModel('lm/hindi-n3-p5-lmplz.blm')
-        self.eblm =  kenlm.LanguageModel('lm/english-n3-p10-lmplz.blm')
+        self.hblm =  kenlm.LanguageModel(hlm)
+        self.eblm =  kenlm.LanguageModel(elm)
         self.so_dec_eng = so_viterbi(self.eblm)
         self.so_dec_hin = so_viterbi(self.hblm)
-        self.e2h = {kv.split()[0]:kv.split()[1].split('|') for kv in io.open('dicts/ENG2HIN12M.dict')}
-        self.h2e = {kv.split()[0]:kv.split()[1].split('|') for kv in io.open('dicts/HIN2ENG12M.dict')}
+        self.e2h = {kv.split()[0]:kv.split()[1].split('|') for kv in io.open(e2hh)}
+        self.h2e = {kv.split()[0]:kv.split()[1].split('|') for kv in io.open(h2ee)}
         self.meta = Meta()
         self.lid = LID(model=lid, etrans=etrans, htrans=htrans)
         self.wx = wx
