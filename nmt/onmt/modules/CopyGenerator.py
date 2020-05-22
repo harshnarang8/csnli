@@ -3,9 +3,9 @@ import torch.nn.functional as F
 import torch
 import torch.cuda
 
-import onmt
-import onmt.io
-from onmt.Utils import aeq
+import csnli.nmt.onmt as onmt
+import csnli.nmt.onmt.io
+from csnli.nmt.onmt.Utils import aeq
 
 
 class CopyGenerator(nn.Module):

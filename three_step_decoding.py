@@ -20,9 +20,9 @@ import numpy as np
 import dynet as dy
 
 from wxconv import WXC
-from so_viterbi import so_viterbi
-from lang_tagger import *
-from nmt.transliterate import Transliterate
+from csnli.so_viterbi import so_viterbi
+from csnli.lang_tagger import *
+from csnli.nmt.transliterate import Transliterate
 
 
 class ThreeStepDecoding(object):

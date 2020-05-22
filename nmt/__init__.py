@@ -1,1 +1,1 @@
-from transliterate import Transliterate
+from csnli.nmt.transliterate import Transliterate

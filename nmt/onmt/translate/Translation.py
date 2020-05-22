@@ -1,7 +1,7 @@
 from __future__ import division, unicode_literals
 
 import torch
-import onmt.io
+import csnli.nmt.onmt.io
 
 
 class TranslationBuilder(object):

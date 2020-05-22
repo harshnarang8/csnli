@@ -9,8 +9,8 @@ import torch
 import torch.nn as nn
 from torch.autograd import Variable
 
-import onmt
-import onmt.io
+import csnli.nmt.onmt as onmt
+import csnli.nmt.onmt.io
 
 
 class LossComputeBase(nn.Module):

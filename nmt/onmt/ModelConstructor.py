@@ -5,15 +5,15 @@ and creates each encoder and decoder accordingly.
 import torch
 import torch.nn as nn
 
-import onmt
-import onmt.io
-import onmt.Models
-import onmt.modules
-from onmt.Models import NMTModel, MeanEncoder, RNNEncoder, \
+import csnli.nmt.onmt as onmt
+import csnli.nmt.onmt.io
+import csnli.nmt.onmt.Models
+import csnli.nmt.onmt.modules
+from csnli.nmt.onmt.Models import NMTModel, MeanEncoder, RNNEncoder, \
                         StdRNNDecoder, InputFeedRNNDecoder
-from onmt.modules import Embeddings, CopyGenerator, \
+from csnli.nmt.onmt.modules import Embeddings, CopyGenerator, \
                          TransformerEncoder, TransformerDecoder
-from onmt.Utils import use_gpu
+from csnli.nmt.onmt.Utils import use_gpu
 
 
 def make_embeddings(opt, word_dict, feature_dicts, for_encoder=True):
@@ -112,6 +112,16 @@ def make_decoder(opt, embeddings):
 
 
 def load_test_model(opt, dummy_opt):
+    # for a in opt:
+    # print(opt.model)
+    # here's the code in question
+    # what this guy does is load a checkpoint, and then create a base model, which given a checkpoint
+    # loads that checkpoint into it
+    # what we need to do is initialise as much as we can without the checkpoint, create a saved parameter
+    # file from the current model file
+    # then load the model parameters from the saved file
+    
+    # note that our model won't work for now unless the checkpoint function works
     checkpoint = torch.load(opt.model,
                             map_location=lambda storage, loc: storage)
     fields = onmt.io.load_fields_from_vocab(
@@ -130,6 +140,7 @@ def load_test_model(opt, dummy_opt):
 
 
 def make_base_model(model_opt, fields, gpu, checkpoint=None):
+    # OLD task at hand is to mark where is the stuff used to load the model present in this function
     """
     Args:
         model_opt: the option loaded from checkpoint.
@@ -194,6 +205,10 @@ def make_base_model(model_opt, fields, gpu, checkpoint=None):
     else:
         generator = CopyGenerator(model_opt.rnn_size,
                                   fields["tgt"].vocab)
+
+    # Note that the load_state_dict func is being used here, which basically implies if we can
+    # somehow separate the above and below portions of the function from a loading perspective
+    # our job might be done here
 
     # Load the model states from checkpoint or initialize them.
     if checkpoint is not None:

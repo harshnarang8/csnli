@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# my stuff
+csnli_models/
+lm/
+lid_models/
+nmt_models/

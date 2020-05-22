@@ -7,8 +7,8 @@ from torch.autograd import Variable
 from torch.nn.utils.rnn import pack_padded_sequence as pack
 from torch.nn.utils.rnn import pad_packed_sequence as unpack
 
-import onmt
-from onmt.Utils import aeq
+import csnli.nmt.onmt as onmt
+from csnli.nmt.onmt.Utils import aeq
 
 
 def rnn_factory(rnn_type, **kwargs):

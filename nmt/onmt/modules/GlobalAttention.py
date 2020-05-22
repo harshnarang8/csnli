@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-from onmt.Utils import aeq, sequence_mask
+from csnli.nmt.onmt.Utils import aeq, sequence_mask
 
 
 class GlobalAttention(nn.Module):

@@ -11,13 +11,13 @@ import argparse
 from itertools import count
 from io import StringIO
 
-import opts
-import onmt
+import csnli.nmt.opts as opts
+import csnli.nmt.onmt as onmt
 import torch
-import onmt.io
-import onmt.modules
-import onmt.translate
-import onmt.ModelConstructor
+import csnli.nmt.onmt.io
+import csnli.nmt.onmt.modules
+import csnli.nmt.onmt.translate
+import csnli.nmt.onmt.ModelConstructor
 
 from wxconv import WXC
 
@@ -35,7 +35,9 @@ class Transliterate:
         opts.add_md_help_argument(parser)
         opts.translate_opts(parser)
         
+        
         self.opt = parser.parse_args()
+        # print(self.opt)
         self.trans_dict = dict()
         self.broken_words = dict()
         file_path = os.path.dirname(os.path.abspath(__file__))

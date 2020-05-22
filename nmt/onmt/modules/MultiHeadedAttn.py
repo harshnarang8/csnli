@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 from torch.autograd import Variable
 
-from onmt.Utils import aeq
+from csnli.nmt.onmt.Utils import aeq
 
 
 class MultiHeadedAttention(nn.Module):

@@ -7,8 +7,8 @@ import torch
 import torchtext.data
 import torchtext.vocab
 
-from onmt.io.DatasetBase import UNK_WORD, PAD_WORD, BOS_WORD, EOS_WORD
-from onmt.io.TextDataset import TextDataset
+from csnli.nmt.onmt.io.DatasetBase import UNK_WORD, PAD_WORD, BOS_WORD, EOS_WORD
+from csnli.nmt.onmt.io.TextDataset import TextDataset
 
 
 def _getstate(self):

@@ -15,9 +15,9 @@ import math
 import torch
 import torch.nn as nn
 
-import onmt
-import onmt.io
-import onmt.modules
+import csnli.nmt.onmt as onmt
+import csnli.nmt.onmt.io
+import csnli.nmt.onmt.modules
 
 
 class Statistics(object):

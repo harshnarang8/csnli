@@ -9,8 +9,8 @@ import sys
 import torch
 import torchtext
 
-from onmt.Utils import aeq
-from onmt.io.DatasetBase import (ONMTDatasetBase, UNK_WORD,
+from csnli.nmt.onmt.Utils import aeq
+from csnli.nmt.onmt.io.DatasetBase import (ONMTDatasetBase, UNK_WORD,
                                  PAD_WORD, BOS_WORD, EOS_WORD)
 
 

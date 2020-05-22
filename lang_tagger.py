@@ -17,7 +17,7 @@ import numpy as np
 import dynet as dy
 from gensim.models.word2vec import Word2Vec
 
-from nmt.transliterate import Transliterate
+from csnli.nmt.transliterate import Transliterate
 
 htrans, etrans = dict(), dict()
 
@@ -88,7 +88,7 @@ class LID(object):
             self.model.populate('%s.dy' %model)
 
     def load_etrans(self, etrans, train=None, dev=None, test=None):
-        self.en_trans = Transliterate(etrans, lang='eng')
+        self.en_trans = Transliterate(etrans, lang='eng') # this leads to the loading call for the model which we wish to change
         if train:
             self.en_trans.transliterate('\n'.join(set([w for sent in train for w,t in sent])))
         if dev:

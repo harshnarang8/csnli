@@ -7,10 +7,10 @@ import torch.nn as nn
 from torch.autograd import Variable
 import numpy as np
 
-import onmt
-from onmt.Models import EncoderBase
-from onmt.Models import DecoderState
-from onmt.Utils import aeq
+import csnli.nmt.onmt as onmt
+from csnli.nmt.onmt.Models import EncoderBase
+from csnli.nmt.onmt.Models import DecoderState
+from csnli.nmt.onmt.Utils import aeq
 
 MAX_SIZE = 5000
 

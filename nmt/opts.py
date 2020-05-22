@@ -1,5 +1,5 @@
 import argparse
-from onmt.modules.SRU import CheckSRU
+from csnli.nmt.onmt.modules.SRU import CheckSRU
 
 
 def model_opts(parser):

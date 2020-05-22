@@ -1,8 +1,8 @@
 import torch
 from torch.autograd import Variable
 
-import onmt.translate.Beam
-import onmt.io
+import csnli.nmt.onmt.translate.Beam
+import csnli.nmt.onmt.io
 
 
 class Translator(object):
